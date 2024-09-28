@@ -6,10 +6,12 @@ on:
     - cron: '30 1-23/2 * * *'
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   update_proxies:
     runs-on: ubuntu-latest
-
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
@@ -27,5 +29,23 @@ jobs:
     - name: Run the update_coxies script
       working-directory: ./
       run: |
-        ls -al       # List files in the directory before running the script
-        python update_coxies.py   # Run Python script
+        echo "Directory contents before running script:"
+        ls -al
+        python update_coxies.py
+        echo "Directory contents after running script:"
+        ls -al
+
+    - name: Check for changes
+      id: git-check
+      run: |
+        git status
+        git diff --exit-code || echo "changes=true" >> $GITHUB_OUTPUT
+
+    - name: Commit and push if changed
+      if: steps.git-check.outputs.changes == 'true'
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add coxies.txt
+        git commit -m "Update coxies.txt"
+        git push
