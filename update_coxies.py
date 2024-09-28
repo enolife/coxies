@@ -9,10 +9,6 @@ def update_proxies_two():
     current_dir = os.getcwd()
     print(f"Current working directory: {current_dir}")
 
-    # Verify the response
-    print(f"Status code: {response.status_code}")
-    print(f"Response content:\n{response.text}")
-
     lines = response.text.strip().split('\n')
     proxies = [f"socks5://{line.split(',')[0]}" for line in lines[1:] if line.strip()]
 
