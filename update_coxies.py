@@ -2,7 +2,7 @@ import requests
 import os
 
 def update_proxies_two():
-    proxies_url = "https://api.s5proxies.com/api2.php?do=download&country=US&key=65fcb18e928802024032105154265fcb18e9288e&is_type="
+    proxies_url = "https://api.s5proxies.com/api2.php?do=download&country=US&key=66f677fc85d242024092704164466f677fc85d2d&is_type="
     response = requests.get(proxies_url)
     lines = response.text.strip().split('\n')
 
