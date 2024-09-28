@@ -2,7 +2,7 @@ import os
 import requests
 
 def update_proxies_two():
-    proxies_url = "https://api.s5proxies.com/api2.php?do=download&key=66f677fc85d242024092704164466f677fc85d2d&is_type=&format=full"
+    proxies_url = "https://tinyurl.com/y7xvaru7"
     response = requests.get(proxies_url)
 
     # Print the current working directory
