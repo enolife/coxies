@@ -4,7 +4,7 @@ import os
 def update_proxies_two():
     proxies_url = "https://api.s5proxies.com/api2.php?do=download&country=US&key=66f677fc85d242024092704164466f677fc85d2d&is_type="
     response = requests.get(proxies_url)
-    
+
     if response.status_code != 200:
         print(f"Failed to fetch proxies, status code: {response.status_code}")
         return
@@ -18,9 +18,8 @@ def update_proxies_two():
     proxies = [f"socks5://{line.split(',')[0]}" for line in lines[1:] if line.strip()]
     proxies = proxies[:100000]
 
-    # Get script directory
-    script_dir = os.path.dirname(os.path.abspath(__file__))
-    socks5_proxies_path = os.path.join(script_dir, "coxies.txt")
+    # Write the file to a fixed path in the repository root
+    socks5_proxies_path = os.path.join(os.getcwd(), "coxies.txt")
 
     # Log the path where the file will be written
     print(f"Writing proxies to: {socks5_proxies_path}")
