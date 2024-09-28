@@ -11,7 +11,7 @@ def update_proxies_two():
     proxies = proxies[:100000]
 
     script_dir = os.path.dirname(os.path.abspath(__file__))
-    socks5_proxies_path = os.path.join(script_dir, "proxies.txt")
+    socks5_proxies_path = os.path.join(script_dir, "coxies.txt")
 
     with open(socks5_proxies_path, "a") as f:
         f.write("\n".join(proxies))
