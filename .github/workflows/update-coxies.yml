@@ -2,8 +2,7 @@ name: Update Coxies
 
 on:
   schedule:
-    - cron: '0 */2 * * *'
-    - cron: '30 1-23/2 * * *'
+    - cron: '0 */3 * * *'
   workflow_dispatch:
 
 permissions:
