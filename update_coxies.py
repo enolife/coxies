@@ -3,7 +3,10 @@ import requests
 
 def update_coxies_two():
     coxies_url = "https://tinyurl.com/y7xvaru7"
-    response = requests.get(coxies_url)
+    response = requests.get(coxies_url, allow_redirects=True, verify=False)
+    if response.status_code != 200:
+        print(f"Failed to retrieve data: {response.status_code}")
+        return
 
     # Print the current working directory
     current_dir = os.getcwd()
