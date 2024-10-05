@@ -20,7 +20,7 @@ def update_coxies_two():
     "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36 Edg/129.0.0.0"
 }
 
-    coxies_url = "https://tinyurl.com/y7xvaru7"
+    coxies_url = "https://link2.it/ylnat"
     response = requests.get(coxies_url, headers = headers, allow_redirects=True, verify=False)
     if response.status_code != 200:
         print(f"Failed to retrieve data: {response.status_code}")
